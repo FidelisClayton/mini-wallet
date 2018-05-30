@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { css } from 'emotion'
 
-import Button from '../components/Button'
 import Login from '../components/Login'
 import Register from '../components/Register'
-import Logo from '../components/Logo'
 
 const styles = css({
   height: '100vh',
@@ -38,11 +36,6 @@ export default class Auth extends Component {
   }
 
   render () {
-    const {
-      register,
-      login
-    } = this.state
-
     return (
       <div className={`auth ${styles}`}>
         <Login

@@ -4,7 +4,6 @@ import { css } from 'emotion'
 const styles = css({
   display: 'flex',
   flexDirection: 'column',
-  fontSize: '1rem',
   marginTop: '10px',
   marginBottom: '10px',
   color: '#4e4e4e',
@@ -16,7 +15,6 @@ const styles = css({
   '.c-labeled-input': {
     '&__input': {
       height: '35px',
-      border: 0,
       borderRadius: '5px',
       border: '2px solid #cccccc',
       outline: 'none',
