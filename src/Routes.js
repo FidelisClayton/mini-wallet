@@ -7,8 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './containers/Home'
-import Login from './containers/Login'
-import Register from './containers/Register'
+import Auth from './containers/Auth'
 
 const Routes = () => {
   return (
@@ -21,13 +20,8 @@ const Routes = () => {
         />
 
         <Route
-          path="/login"
-          component={Login}
-        />
-
-        <Route
-          path="/register"
-          component={Register}
+          path="/auth"
+          component={Auth}
         />
       </Switch>
     </Router>
