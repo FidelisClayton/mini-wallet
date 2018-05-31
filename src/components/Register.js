@@ -111,10 +111,7 @@ export default class Register extends Component {
 
   render () {
     return (
-      <Card
-        {...this.props}
-        className={this.classNames}
-      >
+      <Card className={this.classNames}>
         <h4 className="card__title">
           Criar Conta
         </h4>

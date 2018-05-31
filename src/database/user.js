@@ -7,6 +7,10 @@ export const createUser = (user) => {
   })
 }
 
+export const findUser = (email) => {
+  return db.get(email)
+}
+
 export const verifyIfUserExists = (email) => {
   return db.get(email)
     .then(() => true)

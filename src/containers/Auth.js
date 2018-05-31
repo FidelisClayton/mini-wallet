@@ -6,7 +6,9 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 
 import * as colors from '../helpers/colors'
+
 import { createUser } from '../store/actions/user'
+import { checkCredentials } from '../store/actions/auth'
 
 const styles = css({
   height: '100vh',
@@ -24,6 +26,10 @@ export class Auth extends Component {
     login: true
   }
 
+  componentWillUnmount () {
+    console.log('unmounting')
+  }
+
   register = () => {
     this.setState({
       register: true,
@@ -38,12 +44,18 @@ export class Auth extends Component {
     })
   }
 
+  handleLogin = (credentials) => {
+    this.props.checkCredentials(credentials)
+  }
+
   render () {
     return (
       <div className={`auth ${styles}`}>
         <Login
           active={this.state.login}
           onClick={this.login}
+          onSubmit={this.handleLogin}
+          error={this.props.auth.error}
         />
 
         <Register
@@ -57,8 +69,11 @@ export class Auth extends Component {
 }
 
 export default connect(
-  () => ({}),
+  (state) => ({
+    auth: state.auth
+  }),
   {
-    createUser
+    createUser,
+    checkCredentials
   }
 )(Auth)
