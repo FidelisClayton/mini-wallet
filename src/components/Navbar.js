@@ -58,7 +58,7 @@ const Navbar = props => {
       <ul className="nav__menu">
         <li className="nav__item">
           <Link
-            to="/"
+            to="/home"
             className="nav__link nav__link--active"
           >
             Moedas
@@ -66,7 +66,7 @@ const Navbar = props => {
         </li>
         <li className="nav__item">
           <Link
-            to="/"
+            to="/home/transactions"
             className="nav__link"
           >
             Transações

@@ -14,13 +14,13 @@ const Routes = () => {
     <Router>
       <Switch>
         <Route
-          exact
-          path="/"
+          path="/home"
           component={Home}
         />
 
         <Route
-          path="/auth"
+          exact
+          path="/"
           component={Auth}
         />
       </Switch>

@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+
 import { css } from 'emotion'
 
-import Currency from '../components/Currency'
+import Currencies from '../components/Currencies'
+import Transactions from '../components/Transactions'
 import Navbar from '../components/Navbar'
 
 const styles = css({
@@ -50,17 +57,25 @@ export default class Home extends Component {
           </div>
 
           <div className="home__total-wrapper">
-            <h3 className="home__total">R$ 10.000,00</h3>
+            <h3 className="home__total"><small>R$</small> 10.000,00</h3>
           </div>
 
           <Navbar />
         </div>
 
-        <div className="home__currencies">
-          <Currency />
-          <Currency />
-          <Currency />
-        </div>
+        <Switch>
+          <Route
+            exact
+            path="/home"
+            component={Currencies}
+          />
+
+          <Route
+            exact
+            path="/home/transactions"
+            component={Transactions}
+          />
+        </Switch>
       </div>
     )
   }
