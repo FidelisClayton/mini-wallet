@@ -40,7 +40,7 @@ const styles = css({
       fontSize: '1.8rem'
     },
 
-    '&__currencies': {
+    '&__routes': {
       paddingLeft: '10px',
       paddingRight: '10px',
     }
@@ -63,19 +63,21 @@ export default class Home extends Component {
           <Navbar />
         </div>
 
-        <Switch>
-          <Route
-            exact
-            path="/home"
-            component={Currencies}
-          />
+        <div className="home__routes">
+          <Switch>
+            <Route
+              exact
+              path="/home"
+              component={Currencies}
+            />
 
-          <Route
-            exact
-            path="/home/transactions"
-            component={Transactions}
-          />
-        </Switch>
+            <Route
+              exact
+              path="/home/transactions"
+              component={Transactions}
+            />
+          </Switch>
+        </div>
       </div>
     )
   }
