@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { css } from 'emotion'
+import md5 from 'md5'
 
 import Button from './Button'
 import LabeledInput from './LabeledInput'
@@ -60,13 +61,19 @@ export default class Register extends Component {
 
     const data = this.state.data
 
-    this.props.onSubmit(data)
+    this.props.onSubmit({
+      email: data.email,
+      password: md5(data.password),
+      onboardingComplete: false
+    })
   }
 
   handleInputChange = (inputName) => (event) => {
+    const value = event.target.value
+
     const updatedData = {
       ...this.state.data,
-      [inputName]: event.target.value
+      [inputName]: value
     }
 
     const errors = this.validateFields(updatedData)
@@ -112,54 +119,55 @@ export default class Register extends Component {
           Criar Conta
         </h4>
 
-        <form onSubmit={this.handleSubmit}>
-          <LabeledInput
-            label="Email"
-            inputType="email"
-            onChange={this.handleInputChange('email')}
-            error={this.getErrorForField('email')}
-            inputProps={{
-              defaultValue: this.state.data.email
-            }}
-          />
+        <LabeledInput
+          label="Email"
+          inputType="email"
+          onChange={this.handleInputChange('email')}
+          error={this.getErrorForField('email')}
+          inputProps={{
+            defaultValue: this.state.data.email
+          }}
+        />
 
-          <LabeledInput
-            label="Senha"
-            inputType="password"
-            onChange={this.handleInputChange('password')}
-            error={this.getErrorForField('password')}
-            inputProps={{
-              defaultValue: this.state.data.password
-            }}
-          />
+        <LabeledInput
+          label="Senha"
+          inputType="password"
+          onChange={this.handleInputChange('password')}
+          error={this.getErrorForField('password')}
+          inputProps={{
+            defaultValue: this.state.data.password
+          }}
+        />
 
-          <LabeledInput
-            label="Repita a senha"
-            inputType="password"
-            onChange={this.handleInputChange('passwordAgain')}
-            error={this.getErrorForField('passwordAgain')}
-            inputProps={{
-              defaultValue: this.state.data.passwordAgain
-            }}
-          />
+        <LabeledInput
+          label="Repita a senha"
+          inputType="password"
+          onChange={this.handleInputChange('passwordAgain')}
+          error={this.getErrorForField('passwordAgain')}
+          inputProps={{
+            defaultValue: this.state.data.passwordAgain
+          }}
+        />
 
-          { this.props.active && (
-            <div className="card__submit">
-              <Button type="submit">
-                Registrar
-              </Button>
-            </div>
-          )}
-
-          { !this.props.active && (
-            <h4
-              className="card__title card__title--bottom"
-              onClick={this.props.onClick}
+        { this.props.active && (
+          <div className="card__submit">
+            <Button
+              type="button"
+              onClick={this.handleSubmit}
             >
-              Criar Conta
-            </h4>
-          )}
-        </form>
+              Registrar
+            </Button>
+          </div>
+        )}
+
+        { !this.props.active && (
+          <h4
+            className="card__title card__title--bottom"
+            onClick={this.props.onClick}
+          >
+            Criar Conta
+          </h4>
+        )}
       </Card>
     )
   }
