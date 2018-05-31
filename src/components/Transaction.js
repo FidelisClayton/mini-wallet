@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import { css } from 'emotion'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   display: 'flex',
   justifyContent: 'space-around',
@@ -10,8 +12,8 @@ const styles = css({
   paddingBottom: '15px',
   marginTop: '10px',
   borderRadius: '5px',
-  border: '1px solid #d8e0ea',
-  backgroundColor: '#FFF',
+  border: colors.cardBorder,
+  backgroundColor: colors.white,
 
   '.transaction': {
     '&__data': {
@@ -22,16 +24,16 @@ const styles = css({
       display: 'block',
       fontWeight: 'bold',
       fontSize: '0.7rem',
-      color: '#7a95b9',
+      color: colors.lightBlue,
     },
 
     '&__amount': {
       fontSize: '1.3rem',
-      color: '#344760'
+      color: colors.darkBlue
     },
 
     '&__label': {
-      color: '#7a95b9',
+      color: colors.lightBlue,
       textTransform: 'uppercase',
       fontSize: '0.8rem',
       fontWeight: 'bold'

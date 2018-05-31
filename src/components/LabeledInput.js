@@ -1,12 +1,14 @@
 import React from 'react'
 import { css } from 'emotion'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   display: 'flex',
   flexDirection: 'column',
   marginTop: '10px',
   marginBottom: '10px',
-  color: '#4e4e4e',
+  color: colors.darkGrey,
   textAlign: 'left',
   textTransform: 'uppercase',
   fontSize: '0.7rem',
@@ -16,17 +18,17 @@ const styles = css({
     '&__input': {
       height: '35px',
       borderRadius: '5px',
-      border: '2px solid #cccccc',
+      border: `2px solid ${colors.grey}`,
       outline: 'none',
       marginTop: '5px',
       fontSize: '1rem',
-      color: '#4e4e4e',
+      color: colors.darkGrey,
       paddingLeft: '10px',
       paddingRight: '10px',
       transition: '300ms ease-in-out border-color 100ms',
 
       '&:focus': {
-        borderColor: '#4caf50'
+        borderColor: colors.darkGreen
       }
     },
 

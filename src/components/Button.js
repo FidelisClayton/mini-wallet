@@ -1,13 +1,15 @@
 import React from 'react'
 import { css } from 'emotion'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   height: '40px',
   border: 0,
   borderRadius: '5px',
   width: '100%',
-  backgroundColor: '#4CAF50',
-  color: 'white',
+  backgroundColor: colors.darkGreen,
+  color: colors.white,
   fontWeight: 'bold',
   fontSize: '16px'
 })

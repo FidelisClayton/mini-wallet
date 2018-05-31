@@ -5,12 +5,14 @@ import { css } from 'emotion'
 import Button from './Button'
 import ArrowIcon from './ArrowIcon'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   display: 'flex',
   marginTop: '10px',
   borderRadius: '5px',
-  backgroundColor: '#FFF',
-  border: '1px solid #d8e0ea',
+  backgroundColor: colors.white,
+  border: colors.cardBorder,
 
   '.currency': {
     '&__data': {
@@ -52,7 +54,7 @@ const styles = css({
       outline: 'none',
 
       '&--sell': {
-        background: '#344760'
+        background: colors.darkBlue
       }
     },
 
@@ -68,13 +70,13 @@ const styles = css({
 
     '&__coin, &__total': {
       fontWeight: 'bold',
-      color: '#344760'
+      color: colors.darkBlue
     },
 
     '&__price, &__amount': {
       fontWeight: 'bold',
       fontSize: '0.8rem',
-      color: '#7a95b9'
+      color: colors.lightBlue
     }
   }
 })

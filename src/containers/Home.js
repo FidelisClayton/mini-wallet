@@ -11,9 +11,11 @@ import Currencies from '../components/Currencies'
 import Transactions from '../components/Transactions'
 import Navbar from '../components/Navbar'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   minHeight: '100vh',
-  backgroundColor: '#edeff3',
+  backgroundColor: colors.lightGrey,
 
   '.home': {
     '&__logo': {
@@ -26,9 +28,9 @@ const styles = css({
     },
 
     '&__hero': {
-      backgroundColor: '#FFF',
-      color: '#344760',
-      boxShadow: '0 -2px 20px 0 #576475',
+      backgroundColor: colors.white,
+      color: colors.darkBlue,
+      boxShadow: colors.heroShadow,
       paddingTop: '20px'
     },
 

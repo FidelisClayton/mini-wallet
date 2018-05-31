@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { css } from 'emotion'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   '.nav': {
     '&__menu': {
@@ -20,28 +22,27 @@ const styles = css({
 
     '&__link': {
       textDecoration: 'none',
-      color: '#4CAF50',
+      color: colors.inactiveLightGreen,
       fontWeight: 'bold',
       paddingBottom: '8px',
       display: 'block',
       position: 'relative',
       transition: '300ms color',
       letterSpacing: 2,
-      opacity: 0.5,
 
       '&::after': {
         content: '\'\'',
         position: 'absolute',
         height: '2px',
         width: 0,
-        backgroundColor: '#4CAF50',
+        backgroundColor: colors.darkGreen,
         left: 0,
         bottom: 0,
         transition: '300ms ease-in-out width'
       },
 
       '&--active': {
-        color: '#4CAF50',
+        color: colors.darkGreen,
         opacity: 1,
 
         '&::after': {

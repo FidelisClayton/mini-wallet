@@ -4,15 +4,16 @@ import { css } from 'emotion'
 import Login from '../components/Login'
 import Register from '../components/Register'
 
+import * as colors from '../helpers/colors'
+
 const styles = css({
   height: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '#8BC34A',
-  textAlign: 'center',
-  color: '#DCEDC8',
+  backgroundColor: colors.lightGreen,
+  textAlign: 'center'
 })
 
 export default class Auth extends Component {
