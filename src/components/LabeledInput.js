@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { css } from 'emotion'
 
 import * as colors from '../helpers/colors'
@@ -29,6 +29,14 @@ const styles = css({
 
       '&:focus': {
         borderColor: colors.darkGreen
+      },
+
+      '&--error': {
+        borderColor: colors.red,
+
+        '&:focus': {
+          borderColor: colors.red
+        },
       }
     },
 
@@ -41,35 +49,87 @@ const styles = css({
       paddingRight: '10px',
       paddingLeft: '10px',
       fontSize: '0.6rem',
+    },
+
+    '&__error': {
+      marginTop: '5px',
+      color: colors.red,
+      fontWeight: 'bold'
     }
   }
 })
 
-const LabeledInput = ({
-  label,
-  inputType,
-  inputProps,
-  ...props
-}) => {
-  return (
-    <div
-      className={`c-labeled-input ${styles}`}
-      {...props}
-    >
-      <label>{ label }</label>
+export default class LabeledInput extends Component {
+  state = {
+    showPassword: false
+  }
 
-      { inputType === 'password' && (
-        <span className="c-labeled-input__show-password">Mostrar</span>
-      )}
+  showPassword = () => {
+    this.setState({
+      showPassword: !this.state.showPassword
+    })
+  }
 
-      <input
-        className="c-labeled-input__input"
-        type={inputType}
-        name={label}
-        {...inputProps}
-      />
-    </div>
-  )
+  getInputType = (type) => {
+    if (type === 'password') {
+      return this.state.showPassword ? 'text' : 'password'
+    }
+
+    return type
+  }
+
+  render () {
+    const {
+      label,
+      inputType,
+      inputProps,
+      error,
+      ...props
+    } = this.props
+
+    const inputClasses = [
+      'c-labeled-input__input',
+      error && 'c-labeled-input__input--error'
+    ]
+      .filter(className => !!className)
+      .join(' ')
+
+    return (
+      <div
+        className={`c-labeled-input ${styles}`}
+        {...props}
+      >
+        <label>{ label }</label>
+
+        { inputType === 'password' && !this.state.showPassword && (
+          <span
+            className="c-labeled-input__show-password"
+            onClick={this.showPassword}
+          >
+            Mostrar
+          </span>
+        )}
+
+        { inputType === 'password' && this.state.showPassword && (
+          <span
+            className="c-labeled-input__show-password"
+            onClick={this.showPassword}
+          >
+            Esconder
+          </span>
+        )}
+
+        <input
+          className={inputClasses}
+          type={this.getInputType(inputType)}
+          name={label}
+          {...inputProps}
+        />
+
+        { error && (
+          <span className="c-labeled-input__error">{ error }</span>
+        )}
+      </div>
+    )
+  }
 }
-
-export default LabeledInput

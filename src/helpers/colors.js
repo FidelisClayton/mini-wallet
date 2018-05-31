@@ -1,5 +1,7 @@
 export const white = '#FFFFFF'
 
+export const red = '#DE0F0F'
+
 export const darkBlue = '#344760'
 export const lightBlue = '#7A95B9'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { css } from 'emotion'
 
 import Button from './Button'
@@ -20,63 +20,147 @@ const styles = css({
   }
 })
 
-const Register = ({
-  active,
-  onClick,
-  ...props
-}) => {
-  const classNames = [
-    'register',
-    !active && 'register--inactive',
-    styles
-  ]
-    .filter(className => !!className)
-    .join(' ')
-
-  return (
-    <Card
-      className={classNames}
-      {...props}
-    >
-      <h4 className="card__title">
-        Criar Conta
-      </h4>
-
-      <form>
-        <LabeledInput
-          label="Email"
-          inputType="email"
-        />
-
-        <LabeledInput
-          label="Senha"
-          inputType="password"
-        />
-
-        <LabeledInput
-          label="Repita a senha"
-          inputType="password"
-        />
-
-        { active && (
-          <div className="card__submit">
-            <Button>
-              Registrar
-            </Button>
-          </div>
-        )}
-
-        { !active && (
-          <h4
-            className="card__title card__title--bottom"
-            onClick={onClick}
-          >
-            Criar Conta
-          </h4>
-        )}
-      </form>
-    </Card>
-  )
+const initialState = {
+  data: {
+    email: '',
+    password: '',
+    passwordAgain: ''
+  },
+  errors: []
 }
 
-export default Register
+export default class Register extends Component {
+  state = initialState
+
+  validatePasswords = (password, passwordAgain) => {
+    if(passwordAgain !== '') {
+      if (password === passwordAgain) {
+        return
+      } else {
+        return {
+          field: 'passwordAgain',
+          message: 'As senhas não são iguais'
+        }
+      }
+    }
+
+    return
+  }
+
+  validateFields = (data) => {
+    const errors = [
+      this.validatePasswords(data.password, data.passwordAgain)
+    ].filter(error => !!error)
+
+    return errors
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    const data = this.state.data
+
+    this.props.onSubmit(data)
+  }
+
+  handleInputChange = (inputName) => (event) => {
+    const updatedData = {
+      ...this.state.data,
+      [inputName]: event.target.value
+    }
+
+    const errors = this.validateFields(updatedData)
+
+    this.setState({
+      data: {
+        ...this.state.data,
+        [inputName]: event.target.value
+      },
+      errors
+    })
+  }
+
+  getErrorForField = (fieldName) => {
+    const error = this.state.errors.find(error => error.field === fieldName) || {}
+
+    return error.message
+  }
+
+  reset = () => {
+    this.setState(initialState)
+  }
+
+  get classNames () {
+    const classNames = [
+      'register',
+      !this.props.active && 'register--inactive',
+      styles
+    ]
+      .filter(className => !!className)
+      .join(' ')
+
+    return classNames
+  }
+
+  render () {
+    return (
+      <Card
+        {...this.props}
+        className={this.classNames}
+      >
+        <h4 className="card__title">
+          Criar Conta
+        </h4>
+
+        <form onSubmit={this.handleSubmit}>
+          <LabeledInput
+            label="Email"
+            inputType="email"
+            onChange={this.handleInputChange('email')}
+            error={this.getErrorForField('email')}
+            inputProps={{
+              defaultValue: this.state.data.email
+            }}
+          />
+
+          <LabeledInput
+            label="Senha"
+            inputType="password"
+            onChange={this.handleInputChange('password')}
+            error={this.getErrorForField('password')}
+            inputProps={{
+              defaultValue: this.state.data.password
+            }}
+          />
+
+          <LabeledInput
+            label="Repita a senha"
+            inputType="password"
+            onChange={this.handleInputChange('passwordAgain')}
+            error={this.getErrorForField('passwordAgain')}
+            inputProps={{
+              defaultValue: this.state.data.passwordAgain
+            }}
+          />
+
+          { this.props.active && (
+            <div className="card__submit">
+              <Button type="submit">
+                Registrar
+              </Button>
+            </div>
+          )}
+
+          { !this.props.active && (
+            <h4
+              className="card__title card__title--bottom"
+              onClick={this.props.onClick}
+            >
+              Criar Conta
+            </h4>
+          )}
+        </form>
+      </Card>
+    )
+  }
+}
