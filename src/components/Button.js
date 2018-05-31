@@ -14,10 +14,11 @@ const styles = css({
 
 const Button = ({
   children,
+  className,
   ...props
 }) => (
   <button
-    className={`c-button ${styles}`}
+    className={`c-button ${styles} ${className}`}
     {...props}
   >
     { children }

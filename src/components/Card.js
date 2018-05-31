@@ -4,7 +4,6 @@ import { css } from 'emotion'
 const styles = css({
   width: '80%',
   backgroundColor: '#FFF',
-  minHeight: '200px',
   paddingBottom: '25px',
   paddingLeft: '15px',
   paddingRight: '15px',
