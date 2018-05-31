@@ -20,12 +20,14 @@ const styles = css({
 
     '&__link': {
       textDecoration: 'none',
-      color: '#344760',
+      color: '#4CAF50',
       fontWeight: 'bold',
       paddingBottom: '8px',
       display: 'block',
       position: 'relative',
       transition: '300ms color',
+      letterSpacing: 2,
+      opacity: 0.5,
 
       '&::after': {
         content: '\'\'',
@@ -40,6 +42,7 @@ const styles = css({
 
       '&--active': {
         color: '#4CAF50',
+        opacity: 1,
 
         '&::after': {
           width: '100%'

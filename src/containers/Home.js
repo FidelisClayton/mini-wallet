@@ -11,10 +11,11 @@ const styles = css({
   '.home': {
     '&__logo': {
       margin: 0,
-      fontSize: '1rem',
+      fontSize: '1.1rem',
       textAlign: 'center',
       fontWeight: 'bold',
-      textTransform: 'uppercase'
+      textTransform: 'uppercase',
+      letterSpacing: 2,
     },
 
     '&__hero': {
@@ -45,7 +46,7 @@ export default class Home extends Component {
       <div className={`home ${styles}`}>
         <div className="home__hero">
           <div className="home__logo-wrapper">
-            <h1 className="home__logo">Mini Wallet</h1>
+            <h1 className="home__logo"><small>Mini</small>Wallet</h1>
           </div>
 
           <div className="home__total-wrapper">
