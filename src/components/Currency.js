@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'emotion'
 
 import Button from './Button'
@@ -78,33 +79,63 @@ const styles = css({
   }
 })
 
-const Currency = (props) => {
+const Currency = ({
+  name,
+  price,
+  total,
+  amount,
+  currency,
+  exchangeable,
+  ...props
+}) => {
   return (
-    <div className={`currency ${styles}`}>
+    <div
+      className={`currency ${styles}`}
+      {...props}
+    >
       <div className="currency__info">
         <div className="currency__data">
-          <label className="currency__label currency__coin">Brita</label>
-          <label className="currency__label currency__price">R$ 3,75</label>
+          <label className="currency__label currency__coin">{ name }</label>
+
+          { price && (
+            <label className="currency__label currency__price">R$ { price }</label>
+          )}
         </div>
 
         <div className="currency__data currency__data--right">
-          <label className="currency__label currency__total">R$ 200</label>
-          <label className="currency__label currency__amount">54</label>
+          <label className="currency__label currency__total">R$ { total }</label>
+          { amount && (
+            <label className="currency__label currency__amount">{ currency } { amount }</label>
+          )}
         </div>
       </div>
 
-      <div className="currency__actions">
-        <Button className="currency__action-button">
-          <ArrowIcon className="currency__action-icon" />
-          Comprar
-        </Button>
-        <Button className="currency__action-button currency__action-button--sell">
-          <ArrowIcon className="currency__action-icon currency__action-icon--sell" />
-          Vender
-        </Button>
-      </div>
+      { exchangeable && (
+        <div className="currency__actions">
+          <Button className="currency__action-button">
+            <ArrowIcon className="currency__action-icon" />
+            Comprar
+          </Button>
+          <Button className="currency__action-button currency__action-button--sell">
+            <ArrowIcon className="currency__action-icon currency__action-icon--sell" />
+            Vender
+          </Button>
+        </div>
+      )}
     </div>
   )
+}
+
+Currency.defaultProps = {
+  exchangeable: true
+}
+
+Currency.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number,
+  total: PropTypes.number,
+  amount: PropTypes.amount,
+  styles: PropTypes.string
 }
 
 export default Currency
