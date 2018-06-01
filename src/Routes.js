@@ -10,18 +10,16 @@ import {
 
 import Home from './containers/Home'
 import Auth from './containers/Auth'
+import PrivateRoute from './components/PrivateRoute'
 
 const Routes = (props) => {
   return (
     <Router>
       <Switch>
-        <Route
+        <PrivateRoute
           path="/home"
-          render={() => {
-            return props.auth.allowed
-              ? <Home />
-              : <Redirect to="/" />
-          }}
+          component={Home}
+          authenticated={props.auth.allowed}
         />
 
         <Route

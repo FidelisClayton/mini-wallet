@@ -52,7 +52,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        allowed: true
+        allowed: action.payload !== null
       }
 
     case actions.LOGOUT:
