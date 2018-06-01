@@ -23,6 +23,7 @@ export const createUser = (data) => (dispatch) => {
   dispatch(createUserRequest(data))
 
   return userDb.createUser(data)
+    .then(user => userDb.findUser(user.id))
     .then(user => dispatch(createUserSuccess(user)))
     .catch(error => dispatch(createUserFail(error)))
 }

@@ -1,4 +1,5 @@
 import * as actions from '../actions/auth'
+import * as userActions from '../actions/user'
 
 const initialState = {
   user: null,
@@ -57,6 +58,13 @@ const reducer = (state = initialState, action) => {
 
     case actions.LOGOUT:
       return initialState
+
+    case userActions.CREATE_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        allowed: true
+      }
 
     default:
       return state
