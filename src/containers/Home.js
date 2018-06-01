@@ -66,6 +66,15 @@ const styles = css({
 })
 
 export class Home extends Component {
+  get totalBalance () {
+    return this.props.wallets.reduce((total, wallet) => {
+      const token = wallet.token.toLowerCase()
+      const coinPrice = this.props.prices.tokens[token].sell
+
+      return total + (wallet.balance * coinPrice)
+    }, 0)
+  }
+
   render () {
     return (
       <div className={`home ${styles}`}>
@@ -82,7 +91,7 @@ export class Home extends Component {
           </div>
 
           <div className="home__total-wrapper">
-            <h3 className="home__total"><small>R$</small> 10.000,00</h3>
+            <h3 className="home__total"><small>R$</small> { this.totalBalance }</h3>
           </div>
 
           <Navbar />
@@ -108,4 +117,9 @@ export class Home extends Component {
   }
 }
 
-export default connect(null, { logout })(Home)
+const mapStateToProps = (state) => ({
+  wallets: state.auth.user.wallets,
+  prices: state.prices
+})
+
+export default connect(mapStateToProps, { logout })(Home)

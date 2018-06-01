@@ -99,7 +99,7 @@ const Currency = ({
         <div className="currency__data">
           <label className="currency__label currency__coin">{ name }</label>
 
-          { price && (
+          { exchangeable && price && (
             <label className="currency__label currency__price">R$ { price }</label>
           )}
         </div>
