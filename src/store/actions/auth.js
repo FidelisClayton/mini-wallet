@@ -5,6 +5,7 @@ export const CHECK_CREDENTIALS_SUCCESS = 'CHECK_CREDENTIALS_SUCCESS'
 export const CHECK_CREDENTIALS_FAIL = 'CHECK_CREDENTIALS_FAIL'
 
 export const SET_USER = 'SET_USER@AUTH'
+export const LOGOUT = 'LOGOUT'
 
 const checkCredentialsRequest = (payload) => ({
   type: CHECK_CREDENTIALS_REQUEST,
@@ -42,3 +43,11 @@ export const setUser = (user) => ({
   type: SET_USER,
   payload: user
 })
+
+export const logout = () => {
+  localStorage.removeItem('user')
+
+  return {
+    type: LOGOUT
+  }
+}

@@ -55,6 +55,9 @@ const reducer = (state = initialState, action) => {
         allowed: true
       }
 
+    case actions.LOGOUT:
+      return initialState
+
     default:
       return state
   }
