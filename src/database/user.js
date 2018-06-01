@@ -11,21 +11,24 @@ export const createUser = (user) => {
         token: 'BRL',
         name: 'Real',
         balance: initialBalance,
-        decimalPlaces: 2
+        decimalPlaces: 2,
+        exchangeable: false
       },
       {
         id: 'btc',
         token: 'BTC',
         name: 'Bitcoin',
         balance: 0,
-        decimalPlaces: 8
+        decimalPlaces: 8,
+        exchangeable: true
       },
       {
         id: 'brt',
         token: 'BRT',
         name: 'Brita',
         balance: 0,
-        decimalPlaces: 2
+        decimalPlaces: 2,
+        exchangeable: true
       }
     ],
     transactions: [],

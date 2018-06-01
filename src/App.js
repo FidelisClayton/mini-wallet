@@ -9,7 +9,8 @@ import './api'
 
 class App extends Component {
   componentDidMount () {
-    this.props.setUser(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'))
+    this.props.setUser(user)
   }
 
   render() {

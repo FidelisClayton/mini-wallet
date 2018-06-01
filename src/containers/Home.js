@@ -8,10 +8,11 @@ import {
 
 import { css } from 'emotion'
 
-import Currencies from '../components/Currencies'
 import Transactions from '../components/Transactions'
 import Navbar from '../components/Navbar'
 import Button from '../components/Button'
+
+import Currencies from './Currencies'
 
 import * as colors from '../helpers/colors'
 
