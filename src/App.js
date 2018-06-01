@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Routes from './Routes'
+import Modal from './containers/Modal'
+
 import { setUser } from './store/actions/auth'
 
 import {
@@ -24,7 +26,10 @@ class App extends Component {
 
   render() {
     return (
-      <Routes />
+      <React.Fragment>
+        <Routes />
+        <Modal />
+      </React.Fragment>
     )
   }
 }
