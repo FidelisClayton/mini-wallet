@@ -65,13 +65,6 @@ export class Login extends Component {
   }
 
   handleInputChange = (inputName) => (event) => {
-    const value = event.target.value
-
-    const updatedData = {
-      ...this.state.data,
-      [inputName]: value
-    }
-
     this.setState({
       data: {
         ...this.state.data,
@@ -84,8 +77,7 @@ export class Login extends Component {
     const {
       active,
       onClick,
-      error,
-      ...props
+      error
     } = this.props
 
     return (
