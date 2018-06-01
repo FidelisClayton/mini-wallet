@@ -4,13 +4,22 @@ import { connect } from 'react-redux'
 import Routes from './Routes'
 import { setUser } from './store/actions/auth'
 
+import {
+  fetchPrices,
+  setPrices
+} from './store/actions/prices'
+
 import './App.css'
 import './api'
 
 class App extends Component {
   componentDidMount () {
     const user = JSON.parse(localStorage.getItem('user'))
+    const prices = JSON.parse(localStorage.getItem('prices'))
+
     this.props.setUser(user)
+    this.props.setPrices(prices)
+    this.props.fetchPrices(new Date())
   }
 
   render() {
@@ -22,5 +31,9 @@ class App extends Component {
 
 export default connect(
   state => ({}),
-  { setUser }
+  {
+    setUser,
+    fetchPrices,
+    setPrices
+  }
 )(App)

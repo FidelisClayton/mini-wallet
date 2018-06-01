@@ -106,7 +106,7 @@ const Currency = ({
 
         <div className="currency__data currency__data--right">
           <label className="currency__label currency__total">R$ { total }</label>
-          { amount && (
+          { amount !== null && (
             <label className="currency__label currency__amount">{ currency } { amount }</label>
           )}
         </div>
