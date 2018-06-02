@@ -17,7 +17,8 @@ const styles = css({
 
   '.transaction': {
     '&__data': {
-      textAlign: 'center'
+      textAlign: 'center',
+      flex: 1
     },
 
     '&__price': {
