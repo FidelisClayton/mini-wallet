@@ -162,14 +162,14 @@ const Currency = ({
       { exchangeable && (
         <div className="currency__actions">
           <Button
-            className="currency__action-button"
+            className="currency__action-button currency__buy"
             onClick={onBuy}
           >
             <ArrowIcon className="currency__action-icon" />
             Comprar
           </Button>
           <Button
-            className="currency__action-button currency__action-button--sell"
+            className="currency__action-button currency__sell currency__action-button--sell"
             onClick={onSell}
           >
             <ArrowIcon className="currency__action-icon currency__action-icon--sell" />

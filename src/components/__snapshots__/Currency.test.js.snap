@@ -1,0 +1,632 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <Currency /> should properly render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Currency
+    amount={2}
+    currency="BTC"
+    exchangeable={true}
+    name="Bitcoin"
+    onBuy={[Function]}
+    onSell={[Function]}
+    price={29070}
+    total={58140}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="currency__info"
+>
+          <div
+                    className="currency__data"
+          >
+                    <label
+                              className="currency__label currency__coin"
+                    >
+                              Bitcoin
+                    </label>
+          </div>
+          <div
+                    className="currency__data currency__data--right"
+          >
+                    <label
+                              className="currency__label currency__total"
+                    >
+                              R$ 
+                              58.140,00
+                    </label>
+                    <label
+                              className="currency__label currency__amount"
+                    >
+                              BTC
+                               
+                              2,00000000
+                    </label>
+          </div>
+</div>,
+        <div
+          className="currency__actions"
+>
+          <Button
+                    className="currency__action-button currency__buy"
+                    onClick={[Function]}
+          >
+                    <DownArrow
+                              className="currency__action-icon"
+                    />
+                    Comprar
+          </Button>
+          <Button
+                    className="currency__action-button currency__sell currency__action-button--sell"
+                    onClick={[Function]}
+          >
+                    <DownArrow
+                              className="currency__action-icon currency__action-icon--sell"
+                    />
+                    Vender
+          </Button>
+</div>,
+      ],
+      "className": "currency css-1aypruw",
+      "price": 29070,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="currency__data"
+>
+              <label
+                            className="currency__label currency__coin"
+              >
+                            Bitcoin
+              </label>
+</div>,
+            <div
+              className="currency__data currency__data--right"
+>
+              <label
+                            className="currency__label currency__total"
+              >
+                            R$ 
+                            58.140,00
+              </label>
+              <label
+                            className="currency__label currency__amount"
+              >
+                            BTC
+                             
+                            2,00000000
+              </label>
+</div>,
+          ],
+          "className": "currency__info",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  className="currency__label currency__coin"
+>
+                  Bitcoin
+</label>,
+                undefined,
+              ],
+              "className": "currency__data",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Bitcoin",
+                  "className": "currency__label currency__coin",
+                },
+                "ref": null,
+                "rendered": "Bitcoin",
+                "type": "label",
+              },
+              undefined,
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  className="currency__label currency__total"
+>
+                  R$ 
+                  58.140,00
+</label>,
+                <label
+                  className="currency__label currency__amount"
+>
+                  BTC
+                   
+                  2,00000000
+</label>,
+              ],
+              "className": "currency__data currency__data--right",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "R$ ",
+                    "58.140,00",
+                  ],
+                  "className": "currency__label currency__total",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "R$ ",
+                  "58.140,00",
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "BTC",
+                    " ",
+                    "2,00000000",
+                  ],
+                  "className": "currency__label currency__amount",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "BTC",
+                  " ",
+                  "2,00000000",
+                ],
+                "type": "label",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Button
+              className="currency__action-button currency__buy"
+              onClick={[Function]}
+>
+              <DownArrow
+                            className="currency__action-icon"
+              />
+              Comprar
+</Button>,
+            <Button
+              className="currency__action-button currency__sell currency__action-button--sell"
+              onClick={[Function]}
+>
+              <DownArrow
+                            className="currency__action-icon currency__action-icon--sell"
+              />
+              Vender
+</Button>,
+          ],
+          "className": "currency__actions",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <DownArrow
+                  className="currency__action-icon"
+/>,
+                "Comprar",
+              ],
+              "className": "currency__action-button currency__buy",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "className": "currency__action-icon",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "Comprar",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <DownArrow
+                  className="currency__action-icon currency__action-icon--sell"
+/>,
+                "Vender",
+              ],
+              "className": "currency__action-button currency__sell currency__action-button--sell",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "className": "currency__action-icon currency__action-icon--sell",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "Vender",
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="currency__info"
+>
+            <div
+                        className="currency__data"
+            >
+                        <label
+                                    className="currency__label currency__coin"
+                        >
+                                    Bitcoin
+                        </label>
+            </div>
+            <div
+                        className="currency__data currency__data--right"
+            >
+                        <label
+                                    className="currency__label currency__total"
+                        >
+                                    R$ 
+                                    58.140,00
+                        </label>
+                        <label
+                                    className="currency__label currency__amount"
+                        >
+                                    BTC
+                                     
+                                    2,00000000
+                        </label>
+            </div>
+</div>,
+          <div
+            className="currency__actions"
+>
+            <Button
+                        className="currency__action-button currency__buy"
+                        onClick={[Function]}
+            >
+                        <DownArrow
+                                    className="currency__action-icon"
+                        />
+                        Comprar
+            </Button>
+            <Button
+                        className="currency__action-button currency__sell currency__action-button--sell"
+                        onClick={[Function]}
+            >
+                        <DownArrow
+                                    className="currency__action-icon currency__action-icon--sell"
+                        />
+                        Vender
+            </Button>
+</div>,
+        ],
+        "className": "currency css-1aypruw",
+        "price": 29070,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="currency__data"
+>
+                <label
+                                className="currency__label currency__coin"
+                >
+                                Bitcoin
+                </label>
+</div>,
+              <div
+                className="currency__data currency__data--right"
+>
+                <label
+                                className="currency__label currency__total"
+                >
+                                R$ 
+                                58.140,00
+                </label>
+                <label
+                                className="currency__label currency__amount"
+                >
+                                BTC
+                                 
+                                2,00000000
+                </label>
+</div>,
+            ],
+            "className": "currency__info",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    className="currency__label currency__coin"
+>
+                    Bitcoin
+</label>,
+                  undefined,
+                ],
+                "className": "currency__data",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Bitcoin",
+                    "className": "currency__label currency__coin",
+                  },
+                  "ref": null,
+                  "rendered": "Bitcoin",
+                  "type": "label",
+                },
+                undefined,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    className="currency__label currency__total"
+>
+                    R$ 
+                    58.140,00
+</label>,
+                  <label
+                    className="currency__label currency__amount"
+>
+                    BTC
+                     
+                    2,00000000
+</label>,
+                ],
+                "className": "currency__data currency__data--right",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "R$ ",
+                      "58.140,00",
+                    ],
+                    "className": "currency__label currency__total",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "R$ ",
+                    "58.140,00",
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "BTC",
+                      " ",
+                      "2,00000000",
+                    ],
+                    "className": "currency__label currency__amount",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "BTC",
+                    " ",
+                    "2,00000000",
+                  ],
+                  "type": "label",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Button
+                className="currency__action-button currency__buy"
+                onClick={[Function]}
+>
+                <DownArrow
+                                className="currency__action-icon"
+                />
+                Comprar
+</Button>,
+              <Button
+                className="currency__action-button currency__sell currency__action-button--sell"
+                onClick={[Function]}
+>
+                <DownArrow
+                                className="currency__action-icon currency__action-icon--sell"
+                />
+                Vender
+</Button>,
+            ],
+            "className": "currency__actions",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <DownArrow
+                    className="currency__action-icon"
+/>,
+                  "Comprar",
+                ],
+                "className": "currency__action-button currency__buy",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "className": "currency__action-icon",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "Comprar",
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <DownArrow
+                    className="currency__action-icon currency__action-icon--sell"
+/>,
+                  "Vender",
+                ],
+                "className": "currency__action-button currency__sell currency__action-button--sell",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "className": "currency__action-icon currency__action-icon--sell",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "Vender",
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
