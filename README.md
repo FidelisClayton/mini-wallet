@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FidelisClayton/mini-wallet.svg?branch=master)](https://travis-ci.org/FidelisClayton/mini-wallet)
+
 <p align="center">
   <img width="100" src="readme/wallet.svg">
 </p>
