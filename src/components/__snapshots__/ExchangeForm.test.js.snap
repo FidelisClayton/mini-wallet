@@ -1,0 +1,931 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <ExchangeForm /> should render properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ExchangeForm
+    prices={
+        Object {
+            "buy": 28896,
+            "sell": 29099,
+          }
+    }
+    type="sell"
+    wallet={
+        Object {
+            "balance": 2,
+            "decimalPlaces": 8,
+            "exchangeable": true,
+            "id": "btc",
+            "name": "Bitcoin",
+            "token": "BTC",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown>
+          <div
+                    className="exchange-form__details exchange-form__sell-details"
+          >
+                    <span
+                              className="exchange-form__label"
+                    >
+                              Valor do 
+                              BTC
+                              :
+                    </span>
+                    <span
+                              className="exchange-form__value"
+                    >
+                              R$ 
+                              29.099,00
+                    </span>
+          </div>
+          <div
+                    className="exchange-form__details exchange-form__sell-details"
+          >
+                    <span
+                              className="exchange-form__label"
+                    >
+                              Quantidade disponível
+                    </span>
+                    <span
+                              className="exchange-form__value"
+                    >
+                              2,00000000
+                               
+                              BTC
+                    </span>
+          </div>
+</Unknown>,
+        false,
+        <div
+          className="exchange-form__form"
+>
+          <LabeledInput
+                    error={undefined}
+                    inputProps={
+                              Object {
+                                        "defaultValue": 0,
+                                      }
+                    }
+                    inputType="number"
+                    label="Quantidade a ser vendida"
+                    onChange={[Function]}
+          />
+          <div
+                    className="exchange-form__summary"
+          >
+                    <span
+                              className="exchange-form__label"
+                    >
+                              0,00000000
+                               
+                              BTC
+                               
+                              <small>
+                                        x
+                              </small>
+                               R$ 
+                              29.099,00
+                    </span>
+                    <span
+                              className="exchange-form__value"
+                    >
+                              Total: R$ 
+                              0,00
+                    </span>
+          </div>
+          <Button
+                    className="exchange-form__sell"
+                    disabled={true}
+                    onClick={[Function]}
+          >
+                    Vender
+          </Button>
+</div>,
+      ],
+      "className": "exchange-form css-k89wnn",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <div
+              className="exchange-form__details exchange-form__sell-details"
+>
+              <span
+                            className="exchange-form__label"
+              >
+                            Valor do 
+                            BTC
+                            :
+              </span>
+              <span
+                            className="exchange-form__value"
+              >
+                            R$ 
+                            29.099,00
+              </span>
+</div>,
+            <div
+              className="exchange-form__details exchange-form__sell-details"
+>
+              <span
+                            className="exchange-form__label"
+              >
+                            Quantidade disponível
+              </span>
+              <span
+                            className="exchange-form__value"
+              >
+                            2,00000000
+                             
+                            BTC
+              </span>
+</div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="exchange-form__label"
+>
+                  Valor do 
+                  BTC
+                  :
+</span>,
+                <span
+                  className="exchange-form__value"
+>
+                  R$ 
+                  29.099,00
+</span>,
+              ],
+              "className": "exchange-form__details exchange-form__sell-details",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Valor do ",
+                    "BTC",
+                    ":",
+                  ],
+                  "className": "exchange-form__label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Valor do ",
+                  "BTC",
+                  ":",
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "R$ ",
+                    "29.099,00",
+                  ],
+                  "className": "exchange-form__value",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "R$ ",
+                  "29.099,00",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="exchange-form__label"
+>
+                  Quantidade disponível
+</span>,
+                <span
+                  className="exchange-form__value"
+>
+                  2,00000000
+                   
+                  BTC
+</span>,
+              ],
+              "className": "exchange-form__details exchange-form__sell-details",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Quantidade disponível",
+                  "className": "exchange-form__label",
+                },
+                "ref": null,
+                "rendered": "Quantidade disponível",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "2,00000000",
+                    " ",
+                    "BTC",
+                  ],
+                  "className": "exchange-form__value",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "2,00000000",
+                  " ",
+                  "BTC",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <LabeledInput
+              error={undefined}
+              inputProps={
+                            Object {
+                                          "defaultValue": 0,
+                                        }
+              }
+              inputType="number"
+              label="Quantidade a ser vendida"
+              onChange={[Function]}
+/>,
+            <div
+              className="exchange-form__summary"
+>
+              <span
+                            className="exchange-form__label"
+              >
+                            0,00000000
+                             
+                            BTC
+                             
+                            <small>
+                                          x
+                            </small>
+                             R$ 
+                            29.099,00
+              </span>
+              <span
+                            className="exchange-form__value"
+              >
+                            Total: R$ 
+                            0,00
+              </span>
+</div>,
+            <Button
+              className="exchange-form__sell"
+              disabled={true}
+              onClick={[Function]}
+>
+              Vender
+</Button>,
+            false,
+          ],
+          "className": "exchange-form__form",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "error": undefined,
+              "inputProps": Object {
+                "defaultValue": 0,
+              },
+              "inputType": "number",
+              "label": "Quantidade a ser vendida",
+              "onChange": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="exchange-form__label"
+>
+                  0,00000000
+                   
+                  BTC
+                   
+                  <small>
+                                    x
+                  </small>
+                   R$ 
+                  29.099,00
+</span>,
+                <span
+                  className="exchange-form__value"
+>
+                  Total: R$ 
+                  0,00
+</span>,
+              ],
+              "className": "exchange-form__summary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "0,00000000",
+                    " ",
+                    "BTC",
+                    " ",
+                    <small>
+                      x
+</small>,
+                    " R$ ",
+                    "29.099,00",
+                  ],
+                  "className": "exchange-form__label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "0,00000000",
+                  " ",
+                  "BTC",
+                  " ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "x",
+                    },
+                    "ref": null,
+                    "rendered": "x",
+                    "type": "small",
+                  },
+                  " R$ ",
+                  "29.099,00",
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Total: R$ ",
+                    "0,00",
+                  ],
+                  "className": "exchange-form__value",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Total: R$ ",
+                  "0,00",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Vender",
+              "className": "exchange-form__sell",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Vender",
+            "type": [Function],
+          },
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown>
+            <div
+                        className="exchange-form__details exchange-form__sell-details"
+            >
+                        <span
+                                    className="exchange-form__label"
+                        >
+                                    Valor do 
+                                    BTC
+                                    :
+                        </span>
+                        <span
+                                    className="exchange-form__value"
+                        >
+                                    R$ 
+                                    29.099,00
+                        </span>
+            </div>
+            <div
+                        className="exchange-form__details exchange-form__sell-details"
+            >
+                        <span
+                                    className="exchange-form__label"
+                        >
+                                    Quantidade disponível
+                        </span>
+                        <span
+                                    className="exchange-form__value"
+                        >
+                                    2,00000000
+                                     
+                                    BTC
+                        </span>
+            </div>
+</Unknown>,
+          false,
+          <div
+            className="exchange-form__form"
+>
+            <LabeledInput
+                        error={undefined}
+                        inputProps={
+                                    Object {
+                                                "defaultValue": 0,
+                                              }
+                        }
+                        inputType="number"
+                        label="Quantidade a ser vendida"
+                        onChange={[Function]}
+            />
+            <div
+                        className="exchange-form__summary"
+            >
+                        <span
+                                    className="exchange-form__label"
+                        >
+                                    0,00000000
+                                     
+                                    BTC
+                                     
+                                    <small>
+                                                x
+                                    </small>
+                                     R$ 
+                                    29.099,00
+                        </span>
+                        <span
+                                    className="exchange-form__value"
+                        >
+                                    Total: R$ 
+                                    0,00
+                        </span>
+            </div>
+            <Button
+                        className="exchange-form__sell"
+                        disabled={true}
+                        onClick={[Function]}
+            >
+                        Vender
+            </Button>
+</div>,
+        ],
+        "className": "exchange-form css-k89wnn",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <div
+                className="exchange-form__details exchange-form__sell-details"
+>
+                <span
+                                className="exchange-form__label"
+                >
+                                Valor do 
+                                BTC
+                                :
+                </span>
+                <span
+                                className="exchange-form__value"
+                >
+                                R$ 
+                                29.099,00
+                </span>
+</div>,
+              <div
+                className="exchange-form__details exchange-form__sell-details"
+>
+                <span
+                                className="exchange-form__label"
+                >
+                                Quantidade disponível
+                </span>
+                <span
+                                className="exchange-form__value"
+                >
+                                2,00000000
+                                 
+                                BTC
+                </span>
+</div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="exchange-form__label"
+>
+                    Valor do 
+                    BTC
+                    :
+</span>,
+                  <span
+                    className="exchange-form__value"
+>
+                    R$ 
+                    29.099,00
+</span>,
+                ],
+                "className": "exchange-form__details exchange-form__sell-details",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Valor do ",
+                      "BTC",
+                      ":",
+                    ],
+                    "className": "exchange-form__label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Valor do ",
+                    "BTC",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "R$ ",
+                      "29.099,00",
+                    ],
+                    "className": "exchange-form__value",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "R$ ",
+                    "29.099,00",
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="exchange-form__label"
+>
+                    Quantidade disponível
+</span>,
+                  <span
+                    className="exchange-form__value"
+>
+                    2,00000000
+                     
+                    BTC
+</span>,
+                ],
+                "className": "exchange-form__details exchange-form__sell-details",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Quantidade disponível",
+                    "className": "exchange-form__label",
+                  },
+                  "ref": null,
+                  "rendered": "Quantidade disponível",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "2,00000000",
+                      " ",
+                      "BTC",
+                    ],
+                    "className": "exchange-form__value",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "2,00000000",
+                    " ",
+                    "BTC",
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": Symbol(react.fragment),
+        },
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <LabeledInput
+                error={undefined}
+                inputProps={
+                                Object {
+                                                "defaultValue": 0,
+                                              }
+                }
+                inputType="number"
+                label="Quantidade a ser vendida"
+                onChange={[Function]}
+/>,
+              <div
+                className="exchange-form__summary"
+>
+                <span
+                                className="exchange-form__label"
+                >
+                                0,00000000
+                                 
+                                BTC
+                                 
+                                <small>
+                                                x
+                                </small>
+                                 R$ 
+                                29.099,00
+                </span>
+                <span
+                                className="exchange-form__value"
+                >
+                                Total: R$ 
+                                0,00
+                </span>
+</div>,
+              <Button
+                className="exchange-form__sell"
+                disabled={true}
+                onClick={[Function]}
+>
+                Vender
+</Button>,
+              false,
+            ],
+            "className": "exchange-form__form",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "error": undefined,
+                "inputProps": Object {
+                  "defaultValue": 0,
+                },
+                "inputType": "number",
+                "label": "Quantidade a ser vendida",
+                "onChange": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="exchange-form__label"
+>
+                    0,00000000
+                     
+                    BTC
+                     
+                    <small>
+                                        x
+                    </small>
+                     R$ 
+                    29.099,00
+</span>,
+                  <span
+                    className="exchange-form__value"
+>
+                    Total: R$ 
+                    0,00
+</span>,
+                ],
+                "className": "exchange-form__summary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "0,00000000",
+                      " ",
+                      "BTC",
+                      " ",
+                      <small>
+                        x
+</small>,
+                      " R$ ",
+                      "29.099,00",
+                    ],
+                    "className": "exchange-form__label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "0,00000000",
+                    " ",
+                    "BTC",
+                    " ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "x",
+                      },
+                      "ref": null,
+                      "rendered": "x",
+                      "type": "small",
+                    },
+                    " R$ ",
+                    "29.099,00",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Total: R$ ",
+                      "0,00",
+                    ],
+                    "className": "exchange-form__value",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Total: R$ ",
+                    "0,00",
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Vender",
+                "className": "exchange-form__sell",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Vender",
+              "type": [Function],
+            },
+            false,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'emotion'
 
 import LabeledInput from './LabeledInput'
@@ -151,12 +152,12 @@ export default class ExchangeForm extends Component {
 
   renderSellDetails = () => (
     <React.Fragment>
-      <div className="exchange-form__details">
+      <div className="exchange-form__details exchange-form__sell-details">
         <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
         <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.prices.sell) }</span>
       </div>
 
-      <div className="exchange-form__details">
+      <div className="exchange-form__details exchange-form__sell-details">
         <span className="exchange-form__label">Quantidade disponível</span>
         <span className="exchange-form__value">{ moneyFormat[this.props.wallet.token.toLowerCase()](this.props.wallet.balance) } { this.props.wallet.token }</span>
       </div>
@@ -165,12 +166,12 @@ export default class ExchangeForm extends Component {
 
   renderBuyDetails = () => (
     <React.Fragment>
-      <div className="exchange-form__details">
+      <div className="exchange-form__details exchange-form__buy-details">
         <span className="exchange-form__label">Saldo disponível</span>
         <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.realWallet.balance) }</span>
       </div>
 
-      <div className="exchange-form__details">
+      <div className="exchange-form__details exchange-form__buy-details">
         <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
         <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.prices.sell) }</span>
       </div>
@@ -179,6 +180,7 @@ export default class ExchangeForm extends Component {
 
   renderSellButton = (canTrade) => (
     <Button
+      className="exchange-form__sell"
       disabled={!canTrade}
       onClick={() => this.sell(Number(this.state.data.amount), this.props.wallet, this.props.prices)}
     >
@@ -188,6 +190,7 @@ export default class ExchangeForm extends Component {
 
   renderBuyButton = (canTrade) => (
     <Button
+      className="exchange-form__buy"
       disabled={!canTrade}
       onClick={() => this.buy(Number(this.state.data.amount), this.props.wallet, this.props.prices)}
     >
@@ -245,6 +248,32 @@ export default class ExchangeForm extends Component {
       </div>
     )
   }
+}
+
+ExchangeForm.propTypes = {
+  type: PropTypes.string.isRequired,
+  wallet: PropTypes.shape({
+    id: PropTypes.string,
+    balance: PropTypes.number.isRequired,
+    decimalPlaces: PropTypes.number.isRequired,
+    exchangeable: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    token: PropTypes.string.isRequired
+  }).isRequired,
+  realWallet: PropTypes.shape({
+    id: PropTypes.string,
+    balance: PropTypes.number.isRequired,
+    decimalPlaces: PropTypes.number.isRequired,
+    exchangeable: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    token: PropTypes.string.isRequired
+  }),
+  prices: PropTypes.shape({
+    buy: PropTypes.number.isRequired,
+    sell: PropTypes.number.isRequired
+  }),
+  onBuy: PropTypes.func,
+  onSell: PropTypes.func
 }
 
 ExchangeForm.defaultProps = {
