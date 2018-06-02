@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import md5 from 'md5'
 
@@ -174,4 +175,10 @@ export default class Register extends Component {
       </Card>
     )
   }
+}
+
+Register.propTypes = {
+  active: PropTypes.bool,
+  onSubmit: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 }
