@@ -189,7 +189,7 @@ Currency.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number,
   total: PropTypes.number,
-  amount: PropTypes.amount,
+  amount: PropTypes.number,
   styles: PropTypes.string,
   onSell: PropTypes.func,
   onBuy: PropTypes.func

@@ -88,7 +88,10 @@ Transaction.propTypes = {
   toCoin: PropTypes.string.isRequired,
   toAmount: PropTypes.number.isRequired,
   toPrice: PropTypes.number.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date),
+    PropTypes.string
+  ]).isRequired,
   className: PropTypes.string
 }
 

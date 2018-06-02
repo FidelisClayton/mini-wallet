@@ -14,7 +14,7 @@ const Transactions = ({
           fromCoin={transaction.fromCoin.token}
           fromAmount={transaction.fromAmount}
           toCoin={transaction.toCoin.token}
-          toAmount={transaction.toAmount}
+          toAmount={Number(transaction.toAmount)}
           toPrice={transaction.toPrice}
           date={transaction.date}
         />
