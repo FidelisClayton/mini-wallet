@@ -56,10 +56,15 @@ export default class ExchangeForm extends Component {
   state = initialState
 
   checkAmountLimit = (value, limit) => {
+    const coinName =
+      this.props.type === 'sell'
+        ? this.props.wallet.name
+        : this.props.realWallet.name
+
     if (value > limit) {
       return {
         field: 'amount',
-        message: `A venda não pode ser efetuada pois seu saldo de ${this.props.wallet.name} é insuficiente`
+        message: `A venda não pode ser efetuada pois seu saldo de ${coinName} é insuficiente`
       }
     }
 
@@ -69,8 +74,18 @@ export default class ExchangeForm extends Component {
   handleInputChange = (inputName) => (event) => {
     const value = event.target.value
 
+    const limit =
+      this.props.type === 'sell'
+        ? this.props.wallet.balance
+        : this.props.realWallet.balance
+
+    const amount =
+      this.props.type === 'sell'
+        ? value
+        : value * this.props.prices.sell
+
     const errors = [
-      this.checkAmountLimit(value, this.props.wallet.balance)
+      this.checkAmountLimit(amount, limit)
     ]
       .filter(Boolean)
 
@@ -110,9 +125,76 @@ export default class ExchangeForm extends Component {
       .then(this.props.closeModal)
   }
 
+  buy = (amount, wallet, prices) => {
+    const transaction = {
+      fromCoin: {
+        token: this.props.realWallet.token,
+        name: this.props.realWallet.name
+      },
+      toCoin: {
+        token: wallet.token,
+        name: wallet.name
+      },
+      fromAmount: amount * prices.sell,
+      toAmount: amount,
+      toPrice: prices.buy,
+      date: new Date(),
+    }
+
+    this.props.onBuy(transaction)
+      .then(this.reset)
+      .then(this.props.closeModal)
+  }
+
   reset = () => {
     this.setState(initialState)
   }
+
+  renderSellDetails = () => (
+    <React.Fragment>
+      <div className="exchange-form__details">
+        <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
+        <span className="exchange-form__value">R$ { this.props.prices.sell }</span>
+      </div>
+
+      <div className="exchange-form__details">
+        <span className="exchange-form__label">Quantidade disponível</span>
+        <span className="exchange-form__value">{ this.props.wallet.balance } { this.props.wallet.token }</span>
+      </div>
+    </React.Fragment>
+  )
+
+  renderBuyDetails = () => (
+    <React.Fragment>
+      <div className="exchange-form__details">
+        <span className="exchange-form__label">Saldo disponível</span>
+        <span className="exchange-form__value">{ this.props.realWallet.balance } { this.props.realWallet.token }</span>
+      </div>
+
+      <div className="exchange-form__details">
+        <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
+        <span className="exchange-form__value">R$ { this.props.prices.sell }</span>
+      </div>
+    </React.Fragment>
+  )
+
+  renderSellButton = (canTrade) => (
+    <Button
+      disabled={!canTrade}
+      onClick={() => this.sell(Number(this.state.data.amount), this.props.wallet, this.props.prices)}
+    >
+      Vender
+    </Button>
+  )
+
+  renderBuyButton = (canTrade) => (
+    <Button
+      disabled={!canTrade}
+      onClick={() => this.buy(Number(this.state.data.amount), this.props.wallet, this.props.prices)}
+    >
+      Comprar
+    </Button>
+  )
 
   render () {
     const {
@@ -123,27 +205,23 @@ export default class ExchangeForm extends Component {
 
     const {
       wallet,
-      prices
+      prices,
+      type
     } = this.props
 
     const canTrade =
       this.state.errors.length === 0 && this.state.data.amount > 0
 
+    const isSelling = type === 'sell'
+
     return (
       <div className={`exchange-form ${styles}`}>
-        <div className="exchange-form__details">
-          <span className="exchange-form__label">Valor do { wallet.token }:</span>
-          <span className="exchange-form__value">R$ { prices.sell }</span>
-        </div>
-
-        <div className="exchange-form__details">
-          <span className="exchange-form__label">Quantidade disponível</span>
-          <span className="exchange-form__value">{ wallet.balance } { wallet.token }</span>
-        </div>
+        { isSelling && this.renderSellDetails() }
+        { !isSelling && this.renderBuyDetails() }
 
         <div className="exchange-form__form">
           <LabeledInput
-            label="Quantidade a ser vendida"
+            label={isSelling ? 'Quantidade a ser vendida' : 'Quantidade a ser comprada'}
             inputType="number"
             onChange={this.handleInputChange('amount')}
             inputProps={{
@@ -162,14 +240,14 @@ export default class ExchangeForm extends Component {
             </span>
           </div>
 
-          <Button
-            disabled={!canTrade}
-            onClick={() => this.sell(amount, wallet, prices)}
-          >
-            Vender
-          </Button>
+          { isSelling && this.renderSellButton(canTrade) }
+          { !isSelling && this.renderBuyButton(canTrade) }
         </div>
       </div>
     )
   }
+}
+
+ExchangeForm.defaultProps = {
+  type: 'sell'
 }

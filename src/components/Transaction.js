@@ -57,7 +57,7 @@ const Transaction = ({
       <div className="transaction__data transaction__from">
         <label className="transaction__label">Trocou</label>
         <span className="transaction__price"><span className="transaction__amount">{ fromAmount }</span> { fromCoin }</span>
-        <label className="transaction__label">{ moment(date).format('DD/MM/YYYY HH:MM') }</label>
+        <label className="transaction__label">{ moment(date).format('DD/MM/YYYY HH:mm') }</label>
       </div>
 
       <div className="transaction__data transaction__to">

@@ -13,7 +13,7 @@ import { createTransaction } from '../store/actions/transactions'
 import { fetchUser } from '../store/actions/user'
 
 export class Currencies extends Component {
-  onSell = userId => transaction => {
+  makeTransaction = userId => transaction => {
     return this.props.createTransaction(transaction, userId)
       .then(() => this.props.fetchUser(userId))
   }
@@ -24,11 +24,30 @@ export class Currencies extends Component {
         <ExchangeForm
           wallet={wallet}
           prices={prices}
-          onSell={this.onSell(this.props.user._id)}
+          onSell={this.makeTransaction(this.props.user._id)}
           closeModal={this.props.closeModal}
+          type="sell"
         />
       ),
       title: `Vender ${wallet.name}`
+    })
+  }
+
+  handleBuy = (wallet, prices) => {
+    const realWallet = this.props.wallets.find(wallet => wallet.id === 'brl')
+
+    this.props.openModal({
+      children: (
+        <ExchangeForm
+          wallet={wallet}
+          prices={prices}
+          realWallet={realWallet}
+          onBuy={this.makeTransaction(this.props.user._id)}
+          closeModal={this.props.closeModal}
+          type="buy"
+        />
+      ),
+      title: `Comprar ${wallet.name}`
     })
   }
 
@@ -37,18 +56,19 @@ export class Currencies extends Component {
       <div className="home__currencies">
         { this.props.wallets.map(wallet => {
           const prices = this.props.prices.tokens[wallet.token.toLowerCase()]
-          const total = wallet.balance * prices.buy
+          const total = wallet.balance * prices.sell
 
           return (
             <Currency
               key={wallet.token}
               name={wallet.name}
-              price={prices.buy}
+              prices={prices}
               total={total}
               amount={wallet.balance}
               exchangeable={wallet.exchangeable}
               currency={wallet.token}
               onSell={() => this.handleSell(wallet, prices)}
+              onBuy={() => this.handleBuy(wallet, prices)}
             />
           )
         })}

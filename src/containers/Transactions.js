@@ -8,8 +8,9 @@ const Transactions = ({
 }) => {
   return (
     <div className="transactions">
-      { transactions.map(transaction => (
+      { transactions.reverse().map(transaction => (
         <Transaction
+          key={transaction.id}
           fromCoin={transaction.fromCoin.token}
           fromAmount={transaction.fromAmount}
           toCoin={transaction.toCoin.token}

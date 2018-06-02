@@ -74,6 +74,7 @@ const styles = css({
     },
 
     '&__price, &__amount': {
+      display: 'inline',
       fontWeight: 'bold',
       fontSize: '0.8rem',
       color: colors.lightBlue
@@ -83,12 +84,13 @@ const styles = css({
 
 const Currency = ({
   name,
-  price,
+  prices,
   total,
   amount,
   currency,
   exchangeable,
   onSell,
+  onBuy,
   ...props
 }) => {
   return (
@@ -100,8 +102,10 @@ const Currency = ({
         <div className="currency__data">
           <label className="currency__label currency__coin">{ name }</label>
 
-          { exchangeable && price && (
-            <label className="currency__label currency__price">R$ { price }</label>
+          { exchangeable && prices && (
+            <label className="currency__label currency__price">
+              R$ { prices.sell }
+            </label>
           )}
         </div>
 
@@ -115,7 +119,10 @@ const Currency = ({
 
       { exchangeable && (
         <div className="currency__actions">
-          <Button className="currency__action-button">
+          <Button
+            className="currency__action-button"
+            onClick={onBuy}
+          >
             <ArrowIcon className="currency__action-icon" />
             Comprar
           </Button>
@@ -141,7 +148,9 @@ Currency.propTypes = {
   price: PropTypes.number,
   total: PropTypes.number,
   amount: PropTypes.amount,
-  styles: PropTypes.string
+  styles: PropTypes.string,
+  onSell: PropTypes.func,
+  onBuy: PropTypes.func
 }
 
 export default Currency
