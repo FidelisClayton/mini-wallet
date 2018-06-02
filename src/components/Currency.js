@@ -6,6 +6,7 @@ import Button from './Button'
 import ArrowIcon from './ArrowIcon'
 
 import * as colors from '../helpers/colors'
+import moneyFormat from '../helpers/formaters'
 
 const styles = css({
   display: 'flex',
@@ -104,7 +105,7 @@ const Currency = ({
 
           { exchangeable && prices && (
             <label className="currency__label currency__price">
-              R$ { prices.sell }
+              R$ { moneyFormat.brl(prices.sell) }
             </label>
           )}
         </div>
@@ -112,7 +113,9 @@ const Currency = ({
         <div className="currency__data currency__data--right">
           <label className="currency__label currency__total">R$ { total }</label>
           { amount !== null && (
-            <label className="currency__label currency__amount">{ currency } { amount }</label>
+            <label className="currency__label currency__amount">
+              { currency } { moneyFormat[currency.toLowerCase()](amount) }
+            </label>
           )}
         </div>
       </div>

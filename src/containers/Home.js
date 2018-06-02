@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { css } from 'emotion'
 
 import {
   Switch,
   Route
 } from 'react-router-dom'
-
-import { css } from 'emotion'
 
 import Navbar from '../components/Navbar'
 import Button from '../components/Button'
@@ -15,6 +14,7 @@ import Currencies from './Currencies'
 import Transactions from './Transactions'
 
 import * as colors from '../helpers/colors'
+import { formatBRL } from '../helpers/formaters'
 
 import { logout } from '../store/actions/auth'
 
@@ -71,7 +71,7 @@ export class Home extends Component {
       const token = wallet.token.toLowerCase()
       const coinPrice = this.props.prices.tokens[token].sell
 
-      return total + (wallet.balance * coinPrice)
+      return Number((total + (wallet.balance * coinPrice)).toFixed(2))
     }, 0)
   }
 
@@ -91,7 +91,9 @@ export class Home extends Component {
           </div>
 
           <div className="home__total-wrapper">
-            <h3 className="home__total"><small>R$</small> { this.totalBalance }</h3>
+            <h3 className="home__total">
+              <small>R$</small> { formatBRL(this.totalBalance) }
+            </h3>
           </div>
 
           <Navbar />

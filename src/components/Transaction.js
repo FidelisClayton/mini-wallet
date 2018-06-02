@@ -4,6 +4,7 @@ import moment from 'moment'
 import { css } from 'emotion'
 
 import * as colors from '../helpers/colors'
+import moneyFormat from '../helpers/formaters'
 
 const styles = css({
   display: 'flex',
@@ -56,14 +57,26 @@ const Transaction = ({
     <div className={`transaction ${styles} ${className}`}>
       <div className="transaction__data transaction__from">
         <label className="transaction__label">Trocou</label>
-        <span className="transaction__price"><span className="transaction__amount">{ fromAmount }</span> { fromCoin }</span>
+
+        <span className="transaction__price">
+          <span className="transaction__amount">
+            { moneyFormat[fromCoin.toLowerCase()](fromAmount) }
+          </span> { fromCoin }
+        </span>
+
         <label className="transaction__label">{ moment(date).format('DD/MM/YYYY HH:mm') }</label>
       </div>
 
       <div className="transaction__data transaction__to">
         <label className="transaction__label">Por</label>
-        <span className="transaction__price"><span className="transaction__amount">{ toAmount }</span> { toCoin }</span>
-        <label className="transaction__label">( { toPrice } BRL )</label>
+
+        <span className="transaction__price">
+          <span className="transaction__amount">
+            { moneyFormat[toCoin.toLowerCase()](toAmount) }
+          </span> { toCoin }
+        </span>
+
+        <label className="transaction__label">( { moneyFormat.brl(toPrice) } BRL )</label>
       </div>
     </div>
   )
