@@ -57,6 +57,15 @@ npm start
 - `npm run coverage`: to run the coverage tests
 - `npm run build`: to make the production build
 
+## Folder structure
+- **components**: Dumb components
+- **containers**: Component connected with redux
+- **database**: Functions related to PouchDB
+- **helpers**: Helper functions
+- **store**: Redux store, reducers and actions
+- **store/reducers**: Reducers
+- **store/actions**: Actions
+
 ## :pencil: TODO
 - [ ] Add unit tests to reducers
 - [ ] Add unit tests to actions
