@@ -66,6 +66,13 @@ const reducer = (state = initialState, action) => {
         allowed: true
       }
 
+    case userActions.FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        allowed: true
+      }
+
     default:
       return state
   }

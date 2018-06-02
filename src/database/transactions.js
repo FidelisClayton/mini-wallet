@@ -1,8 +1,6 @@
 import db from './index'
 import uuidv4 from 'uuid/v4'
 
-const walletByToken = token => wallet => wallet.token === token
-
 const updateWalletBalances = (transaction, user) => {
   const walletsUpdated =
     user.wallets
@@ -44,4 +42,5 @@ export const createTransaction = (transaction, userId) => {
         wallets: updateWalletBalances(transaction, user)
       })
     })
+    .then(() => db.get(userId))
 }

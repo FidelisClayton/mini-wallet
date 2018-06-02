@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { css } from 'emotion'
 
 import LabeledInput from './LabeledInput'
 import Button from './Button'
 
 import * as colors from '../helpers/colors'
-
-import { createTransaction } from '../database/transactions'
 
 const styles = css({
   '.exchange-form': {
@@ -107,11 +104,18 @@ export default class ExchangeForm extends Component {
       toPrice: prices.sell,
       date: new Date(),
     }
+
+    this.props.onSell(transaction)
+      .then(this.reset)
+      .then(this.props.closeModal)
+  }
+
+  reset = () => {
+    this.setState(initialState)
   }
 
   render () {
     const {
-      errors,
       data: {
         amount
       }
@@ -150,7 +154,7 @@ export default class ExchangeForm extends Component {
 
           <div className="exchange-form__summary">
             <span className="exchange-form__label">
-              { String(amount) } { wallet.token } <small>x</small> { prices.sell } BRL
+              { amount } { wallet.token } <small>x</small> { prices.sell } BRL
             </span>
 
             <span className="exchange-form__value">
