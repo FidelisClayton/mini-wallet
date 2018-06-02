@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { css } from 'emotion'
 
+import { withRouter } from 'react-router-dom'
+
 import * as colors from '../helpers/colors'
+import NavbarItem from './NavbarItem'
 
 const styles = css({
   '.nav': {
@@ -57,25 +59,20 @@ const Navbar = props => {
   return (
     <nav className={`nav ${styles}`}>
       <ul className="nav__menu">
-        <li className="nav__item">
-          <Link
-            to="/home"
-            className="nav__link nav__link--active"
-          >
-            Moedas
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link
-            to="/home/transactions"
-            className="nav__link"
-          >
-            Transações
-          </Link>
-        </li>
+        <NavbarItem
+          to="/home"
+          text="Moedas"
+          active={props.location.pathname === "/home"}
+        />
+
+        <NavbarItem
+          to="/home/transactions"
+          text="Transações"
+          active={props.location.pathname === "/home/transactions"}
+        />
       </ul>
     </nav>
   )
 }
 
-export default Navbar
+export default withRouter(Navbar)
