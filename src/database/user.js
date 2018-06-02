@@ -18,7 +18,7 @@ export const createUser = (user) => {
         id: 'btc',
         token: 'BTC',
         name: 'Bitcoin',
-        balance: 0.09,
+        balance: 0,
         decimalPlaces: 8,
         exchangeable: true
       },

@@ -7,6 +7,8 @@ import Button from './Button'
 
 import * as colors from '../helpers/colors'
 
+import { createTransaction } from '../database/transactions'
+
 const styles = css({
   '.exchange-form': {
     '&__details': {
@@ -91,8 +93,20 @@ export default class ExchangeForm extends Component {
   }
 
   sell = (amount, wallet, prices) => {
-    // TODO: create a transaction
-    console.log(amount, wallet, prices)
+    const transaction = {
+      fromCoin: {
+        token: wallet.token,
+        name: wallet.name
+      },
+      toCoin: {
+        token: 'BRL',
+        name: 'Real'
+      },
+      fromAmount: amount,
+      toAmount: amount * prices.sell,
+      toPrice: prices.sell,
+      date: new Date(),
+    }
   }
 
   render () {
