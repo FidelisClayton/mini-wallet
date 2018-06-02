@@ -18,6 +18,12 @@ const styles = css({
     marginTop: '45px',
     paddingBottom: 0,
     zIndex: 0,
+  },
+
+  '.card': {
+    '&__title': {
+      cursor: 'pointer'
+    }
   }
 })
 

@@ -18,7 +18,7 @@ const styles = css({
     '&__error': {
       color: colors.red,
       fontWeight: 'bold'
-    }
+    },
   },
 
   '&.login--inactive': {
@@ -26,6 +26,10 @@ const styles = css({
     marginTop: '-100px',
     transform: 'scale(0.90)',
     zIndex: 0
+  },
+
+  '.card__title': {
+    cursor: 'pointer'
   }
 })
 

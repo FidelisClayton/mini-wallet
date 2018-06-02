@@ -6,28 +6,32 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 
 import * as colors from '../helpers/colors'
+import * as breakPoints from '../helpers/breakpoints'
 
 import { createUser } from '../store/actions/user'
 import { checkCredentials } from '../store/actions/auth'
 
 const styles = css({
-  height: '100vh',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
+  minHeight: '100vh',
   backgroundColor: colors.lightGreen,
-  textAlign: 'center'
+
+  '.auth__wrapper': {
+    maxWidth: '500px',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    margin: '0 auto',
+    position: 'relative'
+  }
 })
 
 export class Auth extends Component {
   state = {
     register: false,
     login: true
-  }
-
-  componentWillUnmount () {
-    console.log('unmounting')
   }
 
   register = () => {
@@ -51,18 +55,20 @@ export class Auth extends Component {
   render () {
     return (
       <div className={`auth ${styles}`}>
-        <Login
-          active={this.state.login}
-          onClick={this.login}
-          onSubmit={this.handleLogin}
-          error={this.props.auth.error}
-        />
+        <div className={'auth__wrapper'}>
+          <Login
+            active={this.state.login}
+            onClick={this.login}
+            onSubmit={this.handleLogin}
+            error={this.props.auth.error}
+          />
 
-        <Register
-          active={this.state.register}
-          onClick={this.register}
-          onSubmit={this.props.createUser}
-        />
+          <Register
+            active={this.state.register}
+            onClick={this.register}
+            onSubmit={this.props.createUser}
+          />
+        </div>
       </div>
     )
   }
