@@ -8,6 +8,7 @@ cache:
   directories:
     - "node_modules"
 install:
+  - npm i -g codecov
   - npm install
 script:
-  - npm run test
+  - npm run coverage && codecov -t $CODE_COV_TOKEN
