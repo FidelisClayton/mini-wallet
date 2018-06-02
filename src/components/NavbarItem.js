@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const NavbarItem = ({
@@ -23,6 +24,12 @@ const NavbarItem = ({
       </Link>
     </li>
   )
+}
+
+NavbarItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired
 }
 
 export default NavbarItem
