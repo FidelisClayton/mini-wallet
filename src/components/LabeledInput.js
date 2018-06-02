@@ -11,7 +11,7 @@ const styles = css({
   color: colors.darkGrey,
   textAlign: 'left',
   textTransform: 'uppercase',
-  fontSize: '0.7rem',
+  fontSize: '0.8rem',
   position: 'relative',
 
   '.c-labeled-input': {
@@ -55,6 +55,11 @@ const styles = css({
       marginTop: '5px',
       color: colors.red,
       fontWeight: 'bold'
+    },
+
+    '&__bottom-message': {
+      fontWeight: 'bold',
+      marginTop: '5px'
     }
   }
 })
@@ -84,6 +89,7 @@ export default class LabeledInput extends Component {
       inputType,
       inputProps,
       error,
+      bottomMessage,
       ...props
     } = this.props
 
@@ -125,6 +131,10 @@ export default class LabeledInput extends Component {
           name={label}
           {...inputProps}
         />
+
+        { bottomMessage && (
+          <span className="c-labeled-input__bottom-message">{ bottomMessage }</span>
+        )}
 
         { error && (
           <span className="c-labeled-input__error">{ error }</span>

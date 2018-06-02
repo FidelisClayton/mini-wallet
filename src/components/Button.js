@@ -11,7 +11,12 @@ const styles = css({
   backgroundColor: colors.darkGreen,
   color: colors.white,
   fontWeight: 'bold',
-  fontSize: '16px'
+  fontSize: '16px',
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+    opacity: 0.5
+  }
 })
 
 const Button = ({

@@ -88,6 +88,7 @@ const Currency = ({
   amount,
   currency,
   exchangeable,
+  onSell,
   ...props
 }) => {
   return (
@@ -118,7 +119,10 @@ const Currency = ({
             <ArrowIcon className="currency__action-icon" />
             Comprar
           </Button>
-          <Button className="currency__action-button currency__action-button--sell">
+          <Button
+            className="currency__action-button currency__action-button--sell"
+            onClick={onSell}
+          >
             <ArrowIcon className="currency__action-icon currency__action-icon--sell" />
             Vender
           </Button>

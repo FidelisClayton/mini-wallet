@@ -2,8 +2,8 @@ import * as actions from '../actions/modal'
 
 const initialData = {
   children: null,
-  props: {},
-  visible: false
+  visible: false,
+  title: ''
 }
 
 const reducer = (state = initialData, action) => {

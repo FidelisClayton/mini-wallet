@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { css } from 'emotion'
 
 import * as colors from '../helpers/colors'
+import { closeModal } from '../store/actions/modal'
 
 const styles = css({
   background: colors.white,
@@ -25,7 +26,8 @@ const styles = css({
 
   '.modal': {
     '&__title': {
-      textAlign: 'center'
+      textAlign: 'center',
+      color: colors.darkBlue
     },
 
     '&__close': {
@@ -35,21 +37,23 @@ const styles = css({
       right: '20px',
       top: '22px',
       fontSize: '2rem',
-      color: colors.darkGrey,
+      color: colors.darkBlue,
       outline: 'none'
     },
 
     '&__body': {
       paddingLeft: '15px',
-      paddingRight: '15px'
+      paddingRight: '15px',
+      paddingTop: '15px'
     },
   }
 })
 
 const Modal = ({
   visible,
-  close,
   children,
+  closeModal,
+  title,
   ...props
 }) => {
   const classNames = [
@@ -63,10 +67,10 @@ const Modal = ({
   return (
     <div className={classNames}>
       <div className="modal__header">
-        <h1 className="modal__title">Sell Bitcoin</h1>
+        <h1 className="modal__title">{ title }</h1>
         <button
           className="modal__close"
-          onClick={close}
+          onClick={closeModal}
         >
           X
         </button>
@@ -80,9 +84,10 @@ const Modal = ({
 }
 
 const mapStateToProps = (state) => ({
-  children: state.modal.children,
-  visible: state.modal.visible,
-  ...state.modal.props
+  ...state.modal
 })
 
-export default connect(mapStateToProps)(Modal)
+export default connect(
+  mapStateToProps,
+  { closeModal }
+)(Modal)

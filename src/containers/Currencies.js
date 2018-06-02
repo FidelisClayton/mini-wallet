@@ -1,32 +1,47 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Currency from '../components/Currency'
+import ExchangeForm from '../components/ExchangeForm'
 
-const Currencies = ({
-  wallets,
-  prices
-}) => {
-  return (
-    <div className="home__currencies">
-      { wallets.map(wallet => {
-        const price = prices.tokens[wallet.token.toLowerCase()].buy
-        const total = wallet.balance * price
+import { openModal } from '../store/actions/modal'
 
-        return (
-          <Currency
-            name={wallet.name}
-            price={price}
-            total={total}
-            amount={wallet.balance}
-            exchangeable={wallet.exchangeable}
-            currency={wallet.token}
-          />
-        )
-      })
-      }
-    </div>
-  )
+export class Currencies extends Component {
+  handleSell = (wallet, prices) => {
+    this.props.openModal({
+      children: (
+        <ExchangeForm
+          wallet={wallet}
+          prices={prices}
+        />
+      ),
+      title: `Vender ${wallet.name}`
+    })
+  }
+
+  render () {
+    return (
+      <div className="home__currencies">
+        { this.props.wallets.map(wallet => {
+          const prices = this.props.prices.tokens[wallet.token.toLowerCase()]
+          const total = wallet.balance * prices.buy
+
+          return (
+            <Currency
+              key={wallet.token}
+              name={wallet.name}
+              price={prices.buy}
+              total={total}
+              amount={wallet.balance}
+              exchangeable={wallet.exchangeable}
+              currency={wallet.token}
+              onSell={() => this.handleSell(wallet, prices)}
+            />
+          )
+        })}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = ({
@@ -37,4 +52,7 @@ const mapStateToProps = ({
   prices
 })
 
-export default connect(mapStateToProps)(Currencies)
+export default connect(
+  mapStateToProps,
+  { openModal }
+)(Currencies)
