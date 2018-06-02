@@ -73,12 +73,11 @@ export class Auth extends Component {
   }
 }
 
-export default connect(
-  (state) => ({
-    auth: state.auth
-  }),
-  {
-    createUser,
-    checkCredentials
-  }
-)(Auth)
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, {
+  createUser,
+  checkCredentials
+})(Auth)
