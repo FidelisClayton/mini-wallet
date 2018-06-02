@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'emotion'
 
 import { withRouter } from 'react-router-dom'
@@ -82,6 +83,12 @@ const Navbar = props => {
       </ul>
     </nav>
   )
+}
+
+Navbar.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  })
 }
 
 export default withRouter(Navbar)
