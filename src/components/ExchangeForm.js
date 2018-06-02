@@ -5,6 +5,7 @@ import LabeledInput from './LabeledInput'
 import Button from './Button'
 
 import * as colors from '../helpers/colors'
+import moneyFormat from '../helpers/formaters'
 
 const styles = css({
   '.exchange-form': {
@@ -121,8 +122,7 @@ export default class ExchangeForm extends Component {
     }
 
     this.props.onSell(transaction)
-      .then(this.reset)
-      .then(this.props.closeModal)
+      .then(() => this.reset(this.props.closeModal))
   }
 
   buy = (amount, wallet, prices) => {
@@ -142,24 +142,23 @@ export default class ExchangeForm extends Component {
     }
 
     this.props.onBuy(transaction)
-      .then(this.reset)
-      .then(this.props.closeModal)
+      .then(() => this.reset(this.props.closeModal))
   }
 
-  reset = () => {
-    this.setState(initialState)
+  reset = (callback) => {
+    this.setState(initialState, callback)
   }
 
   renderSellDetails = () => (
     <React.Fragment>
       <div className="exchange-form__details">
         <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
-        <span className="exchange-form__value">R$ { this.props.prices.sell }</span>
+        <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.prices.sell) }</span>
       </div>
 
       <div className="exchange-form__details">
         <span className="exchange-form__label">Quantidade disponível</span>
-        <span className="exchange-form__value">{ this.props.wallet.balance } { this.props.wallet.token }</span>
+        <span className="exchange-form__value">{ moneyFormat[this.props.wallet.token.toLowerCase()](this.props.wallet.balance) } { this.props.wallet.token }</span>
       </div>
     </React.Fragment>
   )
@@ -168,12 +167,12 @@ export default class ExchangeForm extends Component {
     <React.Fragment>
       <div className="exchange-form__details">
         <span className="exchange-form__label">Saldo disponível</span>
-        <span className="exchange-form__value">{ this.props.realWallet.balance } { this.props.realWallet.token }</span>
+        <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.realWallet.balance) }</span>
       </div>
 
       <div className="exchange-form__details">
         <span className="exchange-form__label">Valor do { this.props.wallet.token }:</span>
-        <span className="exchange-form__value">R$ { this.props.prices.sell }</span>
+        <span className="exchange-form__value">R$ { moneyFormat.brl(this.props.prices.sell) }</span>
       </div>
     </React.Fragment>
   )
@@ -232,11 +231,11 @@ export default class ExchangeForm extends Component {
 
           <div className="exchange-form__summary">
             <span className="exchange-form__label">
-              { amount } { wallet.token } <small>x</small> { prices.sell } BRL
+              { moneyFormat[wallet.token.toLowerCase()](amount) } { wallet.token } <small>x</small> R$ { moneyFormat.brl(prices.sell) }
             </span>
 
             <span className="exchange-form__value">
-              Total: { amount * prices.sell } BRL
+              Total: R$ { moneyFormat.brl(amount * prices.sell) }
             </span>
           </div>
 
