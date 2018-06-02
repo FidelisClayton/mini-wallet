@@ -6,6 +6,7 @@ import Button from './Button'
 import ArrowIcon from './ArrowIcon'
 
 import * as colors from '../helpers/colors'
+import * as breakpoints from '../helpers/breakpoints'
 import moneyFormat from '../helpers/formaters'
 
 const styles = css({
@@ -15,14 +16,29 @@ const styles = css({
   backgroundColor: colors.white,
   border: colors.cardBorder,
 
+  ...breakpoints.medium({
+    flexDirection: 'column',
+    flex: 1,
+    marginLeft: '5px',
+    marginRight: '5px'
+  }),
+
   '.currency': {
     '&__data': {
       display: 'flex',
       flexDirection: 'column',
       flexGrow: 1,
 
+      ...breakpoints.medium({
+        marginBottom: '15px'
+      }),
+
       '&--right': {
-        textAlign: 'right'
+        textAlign: 'right',
+
+        ...breakpoints.medium({
+          textAlign: 'center'
+        })
       }
     },
 
@@ -34,10 +50,22 @@ const styles = css({
       paddingRight: '15px',
       flex: 1,
       width: '100%',
+
+      ...breakpoints.medium({
+        flexDirection: 'column',
+        textAlign: 'center',
+        paddingLeft: '5px',
+        paddingRight: '5px'
+      }),
     },
 
     '&__actions': {
-      display: 'flex'
+      display: 'flex',
+
+      ...breakpoints.medium({
+        flexDirection: 'column',
+        alignItems: 'center'
+      })
     },
 
     '&__action-button': {
@@ -54,6 +82,13 @@ const styles = css({
       border: 0,
       outline: 'none',
 
+      ...breakpoints.medium({
+        flexDirection: 'row',
+        height: '35px',
+        width: '80%',
+        marginBottom: '10px',
+      }),
+
       '&--sell': {
         background: colors.darkBlue
       }
@@ -63,6 +98,10 @@ const styles = css({
       marginBottom: '5px',
       width: '15px',
       height: '15px',
+
+      ...breakpoints.medium({
+        marginRight: '10px'
+      }),
 
       '&--sell': {
         transform: 'rotate(180deg)'
@@ -80,7 +119,7 @@ const styles = css({
       fontSize: '0.8rem',
       color: colors.lightBlue
     }
-  }
+  },
 })
 
 const Currency = ({
@@ -111,7 +150,7 @@ const Currency = ({
         </div>
 
         <div className="currency__data currency__data--right">
-          <label className="currency__label currency__total">R$ { total }</label>
+          <label className="currency__label currency__total">R$ { moneyFormat.brl(total) }</label>
           { amount !== null && (
             <label className="currency__label currency__amount">
               { currency } { moneyFormat[currency.toLowerCase()](amount) }

@@ -6,7 +6,6 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 
 import * as colors from '../helpers/colors'
-import * as breakPoints from '../helpers/breakpoints'
 
 import { createUser } from '../store/actions/user'
 import { checkCredentials } from '../store/actions/auth'

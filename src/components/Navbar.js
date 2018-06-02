@@ -4,6 +4,8 @@ import { css } from 'emotion'
 import { withRouter } from 'react-router-dom'
 
 import * as colors from '../helpers/colors'
+import * as breakpoints from '../helpers/breakpoints'
+
 import NavbarItem from './NavbarItem'
 
 const styles = css({
@@ -52,7 +54,14 @@ const styles = css({
         }
       }
     }
-  }
+  },
+
+  ...breakpoints.medium({
+    '&.nav': {
+      maxWidth: '600px',
+      margin: '0 auto'
+    }
+  })
 })
 
 const Navbar = props => {

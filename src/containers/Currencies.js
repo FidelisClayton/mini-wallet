@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { css } from 'emotion'
 
 import Currency from '../components/Currency'
 import ExchangeForm from '../components/ExchangeForm'
@@ -11,6 +12,17 @@ import {
 
 import { createTransaction } from '../store/actions/transactions'
 import { fetchUser } from '../store/actions/user'
+
+import * as breakpoints from '../helpers/breakpoints'
+
+const styles = css({
+  display: 'flex',
+  flexDirection: 'column',
+
+  ...breakpoints.medium({
+    flexDirection: 'row'
+  })
+})
 
 export class Currencies extends Component {
   makeTransaction = userId => transaction => {
@@ -53,7 +65,7 @@ export class Currencies extends Component {
 
   render () {
     return (
-      <div className="home__currencies">
+      <div className={`home__currencies ${styles}`}>
         { this.props.wallets.map(wallet => {
           const prices = this.props.prices.tokens[wallet.token.toLowerCase()]
           const total = wallet.balance * prices.sell

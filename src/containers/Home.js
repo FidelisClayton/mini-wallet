@@ -14,6 +14,7 @@ import Currencies from './Currencies'
 import Transactions from './Transactions'
 
 import * as colors from '../helpers/colors'
+import * as breakpoints from '../helpers/breakpoints'
 import { formatBRL } from '../helpers/formaters'
 
 import { logout } from '../store/actions/auth'
@@ -23,6 +24,15 @@ const styles = css({
   backgroundColor: colors.lightGrey,
 
   '.home': {
+    '&__logo-wrapper': {
+      ...breakpoints.medium({
+        maxWidth: '600px',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between'
+      })
+    },
+
     '&__logo': {
       margin: 0,
       fontSize: '1.3rem',
@@ -60,9 +70,22 @@ const styles = css({
       top: '12px',
       textTransform: 'uppercase',
       fontSize: '0.8rem',
-      color: colors.darkBlue
+      color: colors.darkBlue,
+
+      ...breakpoints.medium({
+        position: 'static'
+      })
+    },
+  },
+
+  ...breakpoints.medium({
+    '.home': {
+      '&__routes': {
+        maxWidth: '700px',
+        margin: '0 auto'
+      }
     }
-  }
+  })
 })
 
 export class Home extends Component {
