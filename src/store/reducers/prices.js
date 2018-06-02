@@ -16,6 +16,13 @@ const reducer = (state = initialState, action) => {
         error: null
       }
 
+  case actions.FETCH_PRICES_SUCCESS:
+    return {
+      ...state,
+      tokens: action.payload,
+      error: null
+    }
+
     default:
       return state
   }
