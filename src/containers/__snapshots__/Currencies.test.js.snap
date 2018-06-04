@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <Currencies /> should render properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Currencies
+    prices={
+        Object {
+            "tokens": Object {
+              "brl": Object {
+                "buy": 0,
+                "sell": 0,
+              },
+            },
+          }
+    }
+    wallets={
+        Array [
+            Object {
+              "balance": 0,
+              "currency": "brl",
+              "exchangeable": true,
+              "name": "Real",
+              "token": "BRL",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Currency
+          amount={0}
+          currency="BRL"
+          exchangeable={true}
+          name="Real"
+          onBuy={[Function]}
+          onSell={[Function]}
+          prices={
+                    Object {
+                              "buy": 0,
+                              "sell": 0,
+                            }
+          }
+          total={0}
+/>,
+      ],
+      "className": "home__currencies css-102045u",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "BRL",
+        "nodeType": "function",
+        "props": Object {
+          "amount": 0,
+          "currency": "BRL",
+          "exchangeable": true,
+          "name": "Real",
+          "onBuy": [Function],
+          "onSell": [Function],
+          "prices": Object {
+            "buy": 0,
+            "sell": 0,
+          },
+          "total": 0,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Currency
+            amount={0}
+            currency="BRL"
+            exchangeable={true}
+            name="Real"
+            onBuy={[Function]}
+            onSell={[Function]}
+            prices={
+                        Object {
+                                    "buy": 0,
+                                    "sell": 0,
+                                  }
+            }
+            total={0}
+/>,
+        ],
+        "className": "home__currencies css-102045u",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "BRL",
+          "nodeType": "function",
+          "props": Object {
+            "amount": 0,
+            "currency": "BRL",
+            "exchangeable": true,
+            "name": "Real",
+            "onBuy": [Function],
+            "onSell": [Function],
+            "prices": Object {
+              "buy": 0,
+              "sell": 0,
+            },
+            "total": 0,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

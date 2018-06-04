@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { css } from 'emotion'
 
@@ -30,7 +31,9 @@ export class Currencies extends Component {
       .then(() => this.props.fetchUser(userId))
   }
 
-  handleSell = (wallet, prices) => {
+  findWalletById = id => wallet => wallet.id === id
+
+  handleSell = (wallet, prices) => () => {
     this.props.openModal({
       children: (
         <ExchangeForm
@@ -45,8 +48,8 @@ export class Currencies extends Component {
     })
   }
 
-  handleBuy = (wallet, prices) => {
-    const realWallet = this.props.wallets.find(wallet => wallet.id === 'brl')
+  handleBuy = (wallet, prices) => () => {
+    const realWallet = this.props.wallets.find(this.findWalletById('brl'))
 
     this.props.openModal({
       children: (
@@ -79,14 +82,25 @@ export class Currencies extends Component {
               amount={wallet.balance}
               exchangeable={wallet.exchangeable}
               currency={wallet.token}
-              onSell={() => this.handleSell(wallet, prices)}
-              onBuy={() => this.handleBuy(wallet, prices)}
+              onSell={this.handleSell(wallet, prices)}
+              onBuy={this.handleBuy(wallet, prices)}
             />
           )
         })}
       </div>
     )
   }
+}
+
+Currencies.propTypes = {
+  wallets: PropTypes.arrayOf(PropTypes.shape({
+    token: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    balance: PropTypes.number.isRequired,
+    exchangeable: PropTypes.bool.isRequired,
+    currency: PropTypes.string.isRequired
+  })).isRequired,
+  prices: PropTypes.object.isRequired
 }
 
 const mapStateToProps = ({
